@@ -1,4 +1,4 @@
-/* # Exclusively from aju
+/* # Exclusively from badboy
  */ 
 
 const Asena = require('../events');
