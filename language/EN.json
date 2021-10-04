@@ -27,6 +27,9 @@
             "NOT_FOUND_PLUGIN": "```Maybe you have installed such a plugin, or maybe not. But it sure isn't right now.```",
             "DELETED": "*✅ Module successfully deleted!*",
             "WARN": "Get plugins only from t.me/remasterplugin channel."
+},
+        "Autovideo": {
+            "AV": "to get autovideo commands"
         },
         "admin": {
             "BAN_DESC": "Ban someone in the group. Reply to message or tag a person to use command.",
