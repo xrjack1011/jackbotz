@@ -31,15 +31,6 @@
         "whatsappstatus": {
             "WS": "It sends Whatsapp status."
         },
-        "warn": {
-            "WARN_MSG": "```User   : {}\nWarn   : {}\nRemain : {}\nReason : {}\n\n```",
-            "WARN_DESC": "Warn replied or mentioned user in a group.",
-            "RESET": "```WARN RESET\nUser      : @{}\nRemaining : {}```",
-            "NEED_USER": "*Give me a User*",
-            "IAADMIN": "*I am not admin*",
-            "ISADMIN": "*Given user is a admin*",
-            "WARNING": "```⚠️WARNING⚠️\nUser      : @{}\nReason    : {}\nRemaining : {}```"
-        },
         "menu": {
             "MENU": "It sends menu."
         },
