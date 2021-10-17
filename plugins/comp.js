@@ -4,7 +4,7 @@ you may not use this file except in compliance with the License.
 WhatsAsenaDuplicated
 */
 
-const Asena = require('../events');
+const Badboy = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
 const Config = require('../config');
@@ -14,7 +14,7 @@ const Lang = Language.getString('weather');
 
 if (Config.WORKTYPE == 'private') {
 
-Asena.addCommand({pattern: 'compliment ?(.*)', fromMe: true, desc: Lang.CM_DESC}, async (message, match) => {
+Badboy.addCommand({pattern: 'compliment ?(.*)', fromMe: true, desc: Lang.CM_DESC}, async (message, match) => {
 	if (match[1] === 'xx') return await message.reply(Lang.NEED_LOCATIONA);
 	const url = `https://complimentr.com/api`;
 	try {
@@ -29,7 +29,7 @@ Asena.addCommand({pattern: 'compliment ?(.*)', fromMe: true, desc: Lang.CM_DESC}
 
 else if (Config.WORKTYPE == 'public') {
 
-Asena.addCommand({pattern: 'compliment ?(.*)', fromMe: false, desc: Lang.CM_DESC}, async (message, match) => {
+Badboy.addCommand({pattern: 'compliment ?(.*)', fromMe: false, desc: Lang.CM_DESC}, async (message, match) => {
 	if (match[1] === 'xx') return await message.reply(Lang.NEED_LOCATIONA);
 	const url = `https://complimentr.com/api`;
 	try {

@@ -1,8 +1,8 @@
 /* Codded by @phaticusthiccy
-re edited by afnanplk
+re edited by BADBMODER
 */
 
-const Asena = require('../events');
+const Badboy = require('../events');
 const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
 const axios = require('axios');
 const Config = require('../config');
@@ -14,7 +14,7 @@ const Lang = Language.getString('log');
 
 if (Config.WORKTYPE == 'private') {
 
-    Asena.addCommand({pattern: 'carbon$', fromMe: true, desc: Lang.CARBON_DESC}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'carbon$', fromMe: true, desc: Lang.CARBON_DESC}, (async (message, match) => {
 
         if (!message.reply_message) return await message.client.sendMessage(message.jid,Lang.REPLY, MessageType.text);
 
@@ -81,7 +81,7 @@ if (Config.WORKTYPE == 'private') {
 }
 else if (Config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'carbon$', fromMe: false, desc: Lang.CARBON_DESC}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'carbon$', fromMe: false, desc: Lang.CARBON_DESC}, (async (message, match) => {
 
         if (!message.reply_message) return await message.client.sendMessage(message.jid,Lang.REPLY, MessageType.text);
 
