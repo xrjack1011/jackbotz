@@ -3,11 +3,11 @@
 Licensed under the  GPL-3.0 License;
 you may not use this file except in
 compliance with the License.
-
 WhiteDevil - TERROR BOY
+re edit by BADBMODER
 */
 
-const Asena = require('../events');
+const Badboy = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const Config = require('../config');
 
@@ -15,7 +15,7 @@ const Language = require('../language');
 const Lang = Language.getString('tagall');
 
 if (Config.WORKTYPE == 'private') {
-    Asena.addCommand({pattern: 'warn ?(.*)', fromMe: true, desc: Lang.WREPORT}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'warn ?(.*)', fromMe: true, desc: Lang.WREPORT}, (async (message, match) => {
         if (match[1] == '' && message.reply_message) {
             let grup = await message.client.groupMetadata(message.jid);
             var jids = [];
@@ -47,7 +47,7 @@ if (Config.WORKTYPE == 'private') {
     }));
 }
 else if (Config.WORKTYPE == 'public') {
-    Asena.addCommand({pattern: 'warn ?(.*)', fromMe: true, desc: Lang.WREPORT}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'warn ?(.*)', fromMe: true, desc: Lang.WREPORT}, (async (message, match) => {
         if (match[1] == '' && message.reply_message) {
             let grup = await message.client.groupMetadata(message.jid);
             var jids = [];
@@ -77,7 +77,7 @@ else if (Config.WORKTYPE == 'public') {
             return message.client.sendMessage(message.jid,Lang.WREPLY, MessageType.text);
         }
     }));
-    Asena.addCommand({pattern: 'warn ?(.*)', fromMe: true, desc: Lang.WREPORT, dontAddCommandList: true}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'warn ?(.*)', fromMe: true, desc: Lang.WREPORT, dontAddCommandList: true}, (async (message, match) => {
         if (match[1] == '' && message.reply_message) {
             let grup = await message.client.groupMetadata(message.jid);
             var jids = [];
