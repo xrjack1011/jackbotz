@@ -1,9 +1,9 @@
 /* Codded by @phaticusthiccy
-re-edited by afnanplk
-PINKY V2
+re-edited by BADBMODER
+Badboy
 */
 
-const Asena = require('../events');
+const Badboy = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const fs = require('fs');
 const ffmpeg = require('fluent-ffmpeg');
@@ -16,7 +16,7 @@ const Lang = Language.getString('ffmpeg');
 
 if (Config.WORKTYPE == 'private') {
 
-    Asena.addCommand({pattern: 'ffmpeg ?(.*)', fromMe: true, desc: Lang.FF_DESC}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'ffmpeg ?(.*)', fromMe: true, desc: Lang.FF_DESC}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,'Need Media and Filter Name!\nℹ️ Ex: ```.ffmpeg fade=in:0:30```\nℹ️ Ex: ```.ffmpeg curves=vintage, fps=fps=25```', MessageType.text);
         if (message.reply_message.video) {
@@ -80,7 +80,7 @@ if (Config.WORKTYPE == 'private') {
 }
 else if (Config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'ffmpeg ?(.*)', fromMe: false, desc: Lang.FF_DESC}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'ffmpeg ?(.*)', fromMe: false, desc: Lang.FF_DESC}, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,'Need Media and Filter Name!\nℹ️ Ex: ```.ffmpeg fade=in:0:30```\nℹ️ Ex: ```.ffmpeg curves=vintage, fps=fps=25```', MessageType.text);
         if (message.reply_message.video) {
