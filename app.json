@@ -1,14 +1,14 @@
 {
-    "name": "Badboy",
-    "description": "badboy bot - re-edited from asena. World’s first UserBot made for WhatsApp.",
-    "logo": "https://avatars.githubusercontent.com/u/83832372?v=4",
+    "name": "BADBOY BY BADBOY MODER",
+    "description": "badboy bot - re-edited from pinky. World’s first UserBot made for WhatsApp.",
+    "logo": "https://telegra.ph/file/fe0c46a730ac0e507dd57.jpg",
     "keywords": ["whatsapp", "userbot", "Asena", "WhatsAsena", "bot", "api", "ai"],
     "repository": "https://github.com/BADBMODER/Badboy",
     "website":   "under maintenance",
     "success_url": "under maintenance",
     "stack": "container",
     "env": {
-        "ASENA_SESSION": {
+        "BADBOY_SESSION": {
             "description": "Qr.Js ile oluşturduğunuz özel session kodu. Type here yours Asena Session.",
             "required": true
         },
@@ -17,14 +17,29 @@
             "required": false
         },
         "LANGUAGE": {
-            "description": "only english language is available",
+            "description": "only en & ml language is available",
             "required": true,
             "value": "en"
+        },
+        "WEL_GIF": {
+            "description": "Fill here any gif link if you selected gif as WEELCOME",
+            "required": false,
+            "value": "false"
+        },
+        "BYE_GIF": {
+            "description": "Fill here any gif link if you selected gif as WEELCOME",
+            "required": false,
+            "value": "false"
         },
          "BGM_FILTER": {
             "description": "If you likes bgm you can write 'true'. Otherwise false",
             "required": false,
             "value": "true"
+        },
+         "BGM_DURATION": {
+            "description": "FUNY BGM DURATION   codded by SAIDALI",
+            "required": false,
+            "value": "31996800"
         },   
         "ANTİ_LİNK": {
             "description": "Link Engelleme Sistemi. Link Blocking System.",
@@ -36,16 +51,45 @@
             "required": false,
             "value": "true"
         },  
-         "THERI_KICK": {
-            "description": "THERI VILICHAL KICK IF TRUE , just keep it false as this option is under maintanance ",
+         "THERI_KICK_GP": {
+            "description": "will remove members from group if they use bad words given in THERI_LIST_GP , if true ",
             "required": true,
             "value": "false"
         },
-        "AUTO_BİO": {
-            "description": "Duruma otomatik tarih ve zaman eklemek için true yapın. Set true for auto date, time in biography.",
-            "required": true,
-            "value": "true"
+        "NUMBER": {
+            "description": "give your orginal phone number if you wish to add it in .number cmnd ",
+            "required": false
         },
+        "PM_BLOCK": {
+            "description": "Link Engelleme Sistemi. Link Blocking System.",
+            "required": true,
+            "value": "false"
+        },
+         "THERI_KICK_PM": {
+            "description": "will block members if they use bad words given in THERI_LIST_PM , if true ",
+            "required": true,
+            "value": "false"
+        },
+        "SONGD": {
+            "description": "Customizable song DOWNLOADING message instead of 'Dowloading your song'",
+            "required": true,
+            "value": "*◎♫♪♫ ✎﹏sᴇᴀʀᴄʜɪɴɢ🙈﹏﹏﹏﹏𝅘𝅥𝅮𝅘𝅥𝅯𝆺𝅥𝅯𝄞﹏*"
+        },
+        "SONGU": {
+            "description": "Customizable song UPLOADING message instead of 'Uploading your song'",
+            "required": true,
+            "value": "🎵𓊈𒆜𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝚂𝙾𝙽𝙶𒆜𓊉🎵\n   0:33 ━━●────────── -4:33\n⇆        ◁ㅤㅤ ❚❚ㅤㅤ ▷        ↻\n      VOLUME 🔉■■■■□90%🔊\n     🎧✶⊶⊷⊶⊷😂⊶⊷⊶⊷✶🎧"
+        },
+         "THERI_LIST_GP": {
+            "description": "enter the word you dont allow in your group ",
+            "required": true,
+            "value": "false"
+        },
+         "THERI_LIST_PM": {
+            "description": "enter the words you dont allow in your pm ",
+            "required": true,
+            "value": "false"
+        },        
         "OWNER_NAME": {
             "description": "reply for .owner ! give your details, Use => default, to change back.",
             "required": false,
@@ -62,17 +106,17 @@
             "value": "true"
         },
         "Z_BOT_NAME": {
-            "description": "give a name you disire to give your bot (for auto reply pinkt to identify)",
+            "description": "give a name you disire to give your bot (for auto reply badboy to identify)",
             "required": false,
             "value": "BADBOY"
         },
         "Z_DEP_NAME": {
-            "description": "bot deployer name make it short  (for auto reply pinkt to identify)",
+            "description": "bot deployer name make it short  (for auto reply badboy to identify)",
             "required": false,
-            "value": "plk"
+            "value": "shazz"
         },
-        "Z_BOT_REPLY": {
-            "description": "enter the repply message you want when deployer name is typed by users  (for auto reply pinkt to identify)",
+        "Z_DEP_REPLY": {
+            "description": "enter the reply message you want when deployer name is typed by users  (for auto reply pink to identify)",
             "required": false,
             "value": "i know him he is my creator"
         },
@@ -84,12 +128,7 @@
         "NO_LOG": {
             "description": "Hata logu görmek istemiyorsanız true yapın. Set true if you don't want to see error log.",
             "required": true,
-            "value": "false"
-        },
-         "THERI_LIST": {
-            "description": "bad word ban...  add the bad words you dont allow in your grp (THERI_KICK must be true to run this feature) example: plk-dqz,f**k,d**k",
-            "required": true,
-            "value": "false"
+            "value": "true"
         },
         "SEND_READ": {
             "description": "Görüldü atmak istiyorsanız true yazın. Write true if you want to throw seen.",
@@ -109,7 +148,12 @@
          "BOT_NAME": {
             "description": "heading for .list command reply",
             "required": false,
-            "value": "•━━━━╼⤏BADBOY BOT⤎╾━━━•"
+            "value": "•━━━╼⤏BADBOY BOT⤎╾━━━•"
+        },      
+        "TALKING_BADBOY": {
+            "description": "Hesabınızı bir Chatbot'a Çevirin! Turn your account into a chatbot!",
+            "required": true,
+            "value": "false"
         },
         "HEROKU_API_KEY": {
             "description": "Herokuda API Keyiniz. Heroku API Key.",
@@ -166,7 +210,7 @@
         "ALIVE_MESSAGE": {
             "description": "Customizable Alive Message! Use => default, to change back.",
             "required": false,
-            "value": "i am alive  \n\n ```coded by afnan pallikkel```"
+            "value": "i am alive  \n\n ```coded by Shahid shazz```"
         },
         "BAN_MESSAGE": {
             "description": "Customizable kick Message! Use => default, to change back.",
@@ -203,22 +247,12 @@
             "required": false,
             "value": "default"
         },
-        "GAN_IMAGE": {
-            "description": "Gan Style eklentisi için resim bağlantısı yazın. Type image link for Gan Style plugin.",
-            "required": true,
-            "value": "https://i.hizliresim.com/loUtAb.jpg"
-        },
         "TAG_REPLY": {
             "description": "Enter jid of your number so that you get a audio reply when metioned example - 91xxxxxxxxxx@s.whatsapp.net - for india",
             "required": false          
         },
         "NO_ONLINE": {
             "description": "Çevrimiçi görünmek istemiyorsanız true yazın. Type true if you don't want to appear online.",
-            "required": false,
-            "value": "true"
-        },
-        "COFFEEHOUSE_API_KEY": {
-            "description": "Pass This Step! - Bu Bölümü Geçin!",
             "required": false,
             "value": "true"
         }
