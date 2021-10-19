@@ -1,8 +1,8 @@
 /* Copyright (C) 2021 plk-dqz.
 Licensed under the  GPL-3.0 License;
 you may not use this file except in compliance with the License.
-re edit by Badboy Moder
-BADBOY*/
+re edit by BADBMODER
+Badboy*/
 
 
 const Badboy = require('../events');
