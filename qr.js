@@ -1,10 +1,12 @@
 /* Copyright (C) 2020 Yusuf Usta.
-PINKY V2
+Licensed under the  GPL-3.0 License;
+you may not use this file except in compliance with the License.
+WhatsAsena - Yusuf Usta
 */
 
 const chalk = require('chalk');
 const {WAConnection, MessageOptions, MessageType} = require('@adiwajshing/baileys');
-const {StringSession} = require('./whatsasena/');
+const {StringSession} = require('./badboy)/');
 const fs = require('fs');
 
 async function whatsAsena () {
@@ -17,7 +19,6 @@ async function whatsAsena () {
     conn.on('connecting', async () => {
         console.log(`${chalk.green.bold('Whats')}${chalk.blue.bold('Asena')}
 ${chalk.white.italic('AsenaString Kodu Alıcı')}
-
 ${chalk.blue.italic('ℹ️  Connecting to Whatsapp... Please Wait.')}`);
     });
     
