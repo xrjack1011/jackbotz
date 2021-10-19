@@ -1,11 +1,14 @@
-/* 
-plk
+/*
+Coded by afnanplk
+re edited by BADBMODER
+Badboy
 */
 
-const Asena = require('../events');
+const Badboy = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const translatte = require('translatte');
 const config = require('../config');
+const luttapi = require('../luttapi');
 const LanguageDetect = require('languagedetect');
 const lngDetector = new LanguageDetect();
 const Heroku = require('heroku-client');
@@ -70,14 +73,6 @@ if (config.LANG == 'EN') {
     dlang_other = 'Other Languages'
     dlang_input = 'Processed Text:'
 }
-if (config.LANG == 'AZ') {
-    dlang_dsc = 'Cavablanan mesajın dilini təxmin edin.'
-    closer_res = 'Ən yaxın nəticə:'
-    dlang_lang = 'Dil:'
-    dlang_similarity = 'Bənzərlik:'
-    dlang_other = 'Başqa Dillər'
-    dlang_input = 'İşlənmiş Mətn:'
-}
 if (config.LANG == 'ML') {
     dlang_dsc = 'മറുപടി നൽകിയ സന്ദേശത്തിന്റെ ഭാഷ ess ഹിക്കുക.'
     closer_res = 'ഏറ്റവും അടുത്ത ഫലം:'
@@ -85,30 +80,6 @@ if (config.LANG == 'ML') {
     dlang_similarity = 'സമാനത:'
     dlang_other = 'മറ്റ് ഭാഷകൾ'
     dlang_input = 'പ്രോസസ്സ് ചെയ്ത വാചകം:'
-}
-if (config.LANG == 'HI') {
-    dlang_dsc = 'उत्तर दिए गए संदेश की भाषा का अनुमान लगाएं'
-    closer_res = 'निकटतम परिणाम:'
-    dlang_lang = 'जुबान:'
-    dlang_similarity = 'समानता:'
-    dlang_other = 'अन्य भाषाएँ'
-    dlang_input = 'संसाधित पाठ:'
-}
-if (config.LANG == 'ES') {
-    dlang_dsc = 'Adivina el idioma del mensaje respondido.'
-    closer_res = 'Resultado más cercano:'
-    dlang_lang = 'Lengua:'
-    dlang_similarity = 'Semejanza:'
-    dlang_other = 'Otros idiomas:'
-    dlang_input = 'Texto procesado:'
-}
-if (config.LANG == 'PT') {
-    dlang_dsc = 'Adivinhe o idioma da mensagem respondida.'
-    closer_res = 'Resultado mais próximo:'
-    dlang_lang = 'Língua:'
-    dlang_similarity = 'Similaridade:'
-    dlang_other = 'Outras línguas'
-    dlang_input = 'Texto Processado:'
 }
 if (config.LANG == 'ID') {
     dlang_dsc = 'Tebak bahasa pesan yang dibalas.'
@@ -118,19 +89,11 @@ if (config.LANG == 'ID') {
     dlang_other = 'Bahasa Lainnya'
     dlang_input = 'Teks yang Diproses:'
 }
-if (config.LANG == 'RU') {
-    dlang_dsc = 'Угадай язык ответного сообщения.'
-    closer_res = 'Ближайший результат:'
-    dlang_lang = 'Язык:'
-    dlang_similarity = 'Сходствo:'
-    dlang_other = 'Другие языки'
-    dlang_input = 'Обработанный текст:'
-}
 
 
 if (config.WORKTYPE == 'private') {
 
-    Asena.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: true}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: true}, (async (message, match) => {
 
         if (!message.reply_message) {
             return await message.client.sendMessage(message.jid,Lang.NEED_REPLY,MessageType.text);
@@ -143,103 +106,6 @@ if (config.WORKTYPE == 'private') {
             + '*🔎 ' + Lang.RESULT + ':* ```' + ceviri.text + '```');
         } else {
             return await message.client.sendMessage(message.jid,Lang.TRANSLATE_ERROR,MessageType.text)
-        }
-    }));
-    var l_dsc = ''
-    var alr_on = ''
-    var alr_off = ''
-    var succ_on = ''
-    var succ_off = ''
-    if (config.LANG == 'TR') {
-        l_dsc = 'Antilink aracını etkinleştirir.'
-        alr_on = 'Antilink halihazırda açık!'
-        alr_off = 'Antilink halihazırda kapalı!'
-        succ_on = 'Antilink Başarıyla Açıldı!'
-        succ_off = 'Antilink Başarıyla Kapatıldı!'
-    }
-    if (config.LANG == 'EN') {
-        l_dsc = 'Activates the Antilink tool.'
-        alr_on = 'Antilink is already open!'
-        alr_off = 'Antilink is currently closed!'
-        succ_on = 'Antilink Opened Successfully!'
-        succ_off = 'Antilink Closed Successfully!'
-    }
-    if (config.LANG == 'AZ') {
-        l_dsc = 'Antilink alətini aktivləşdirir.'
-        alr_on = 'Antilink hazırda açıqdır!'
-        alr_off = 'Antilink hazırda bağlıdır!'
-        succ_on = 'Antilink Uğurla Açıldı!'
-        succ_off = 'Antilink Uğurla Bağlandı!'
-    }
-    if (config.LANG == 'HI') {
-        l_dsc = 'एंटीलिंक टूल को सक्रिय करता है।'
-        alr_on = 'एंटीलिंक पहले से ही खुला है!'
-        alr_off = 'एंटीलिंक वर्तमान में बंद है!'
-        succ_on = 'एंटीलिंक सफलतापूर्वक खोला गया!'
-        succ_off = 'एंटीलिंक सफलतापूर्वक बंद!'
-    }
-    if (config.LANG == 'ML') {
-        l_dsc = 'ആന്റിലിങ്ക് ഉപകരണം സജീവമാക്കുന്നു.'
-        alr_on = 'ആന്റിലിങ്ക് ഇതിനകം തുറന്നു!'
-        alr_off = 'ആന്റിലിങ്ക് നിലവിൽ അടച്ചിരിക്കുന്നു!'
-        succ_on = 'ആന്റിലിങ്ക് വിജയകരമായി തുറന്നു!'
-        succ_off = 'ആന്റിലിങ്ക് വിജയകരമായി അടച്ചു!'
-    }
-    if (config.LANG == 'PT') {
-        l_dsc = 'Ativa a ferramenta Antilink.'
-        alr_on = 'O Antilink já está aberto!'
-        alr_off = 'Antilink está fechado no momento!'
-        succ_on = 'Antilink aberto com sucesso!'
-        succ_off = 'Antilink fechado com sucesso!'
-    }
-    if (config.LANG == 'RU') {
-        l_dsc = 'Активирует инструмент Antilink.'
-        alr_on = 'Антилинк уже открыт!'
-        alr_off = 'Антилинк сейчас закрыт!'
-        succ_on = 'Антилинк успешно открыт!'
-        succ_off = 'Антилинк успешно закрыт!'
-    }
-    if (config.LANG == 'ES') {
-        l_dsc = 'Activa la herramienta Antilink.'
-        alr_on = '¡Antilink ya está abierto!'
-        alr_off = '¡Antilink está cerrado actualmente!'
-        succ_on = '¡Antilink se abrió con éxito!'
-        succ_off = 'Antilink cerrado correctamente!'
-    }
-    if (config.LANG == 'ID') {
-        l_dsc = 'Mengaktifkan alat Antilink.'
-        alr_on = 'Antilink sudah terbuka!'
-        alr_off = 'Antilink saat ini ditutup!'
-        succ_on = 'Antilink Berhasil Dibuka!'
-        succ_off = 'Antilink Berhasil Ditutup!'
-    }
-    Asena.addCommand({pattern: 'antilink ?(.*)', fromMe: true, desc: l_dsc, usage: '.antilink on / off' }, (async (message, match) => {
-        const anti_status = `${config.ANTİLİNK}`
-        if (match[1] == 'on') {
-            if (anti_status == 'true') {
-                return await message.client.sendMessage(message.jid, '*' + alr_on + '*', MessageType.text)
-            }
-            else {
-                await heroku.patch(baseURI + '/config-vars', { 
-                    body: { 
-                        ['ANTİ_LİNK']: 'true'
-                    } 
-                });
-                await message.client.sendMessage(message.jid, '*' + succ_on + '*', MessageType.text)
-            }
-        }
-        else if (match[1] == 'off') {
-            if (anti_status !== 'true') {
-                return await message.client.sendMessage(message.jid, '*' + alr_off + '*', MessageType.text)
-            }
-            else {
-                await heroku.patch(baseURI + '/config-vars', { 
-                    body: { 
-                        ['ANTİ_LİNK']: 'false'
-                    } 
-                });
-                await message.client.sendMessage(message.jid, '*' + succ_off + '*', MessageType.text)
-            }
         }
     }));
     var auto_dsc = ''
@@ -261,47 +127,12 @@ if (config.WORKTYPE == 'private') {
         succ_on_bio = 'Autobio Opened Successfully!'
         succ_off_bio = 'Autobio Closed Successfully!'
     }
-    if (config.LANG == 'AZ') {
-        auto_dsc = 'Bio-ya canlı saat əlavə et!'
-        alr_on_bio = 'Autobio hazırda açıqdır!'
-        alr_off_bio = 'Autobio hazırda bağlıdır!'
-        succ_on_bio = 'Autobio Uğurla Açıldı!'
-        succ_off_bio = 'Autobio Uğurla Bağlandı!'
-    }
-    if (config.LANG == 'HI') {
-        auto_dsc = 'अपने बायो में लाइव घड़ी जोड़ें!'
-        alr_on_bio = 'Autobio पहले से ही खुला है!'
-        alr_off_bio = 'Autobio वर्तमान में बंद है!'
-        succ_on_bio = 'Autobio सफलतापूर्वक खोला गया!'
-        succ_off_bio = 'Autobio सफलतापूर्वक बंद!'
-    }
     if (config.LANG == 'ML') {
         auto_dsc = 'നിങ്ങളുടെ ബയോയിലേക്ക് തത്സമയ ക്ലോക്ക് ചേർക്കുക!'
         alr_on_bio = 'Autobio ഇതിനകം തുറന്നു!'
         alr_off_bio = 'Autobio നിലവിൽ അടച്ചിരിക്കുന്നു!'
         succ_on_bio = 'Autobio വിജയകരമായി തുറന്നു!'
         succ_off_bio = 'Autobio വിജയകരമായി അടച്ചു!'
-    }
-    if (config.LANG == 'PT') {
-        auto_dsc = 'Adicione um relógio ao vivo à sua biografia!'
-        alr_on_bio = 'O Autobio já está aberto!'
-        alr_off_bio = 'Autobio está fechado no momento!'
-        succ_on_bio = 'Autobio aberto com sucesso!'
-        succ_off_bio = 'Autobio fechado com sucesso!'
-    }
-    if (config.LANG == 'RU') {
-        auto_dsc = 'Добавьте живые часы в свою биографию!'
-        alr_on_bio = 'Autobio уже открыт!'
-        alr_off_bio = 'Autobio сейчас закрыт!'
-        succ_on_bio = 'Autobio успешно открыт!'
-        succ_off_bio = 'Autobio успешно закрыт!'
-    }
-    if (config.LANG == 'ES') {
-        auto_dsc = '¡Agrega un reloj en vivo a tu biografía!'
-        alr_on_bio = '¡Autobio ya está abierto!'
-        alr_off_bio = '¡Autobio está cerrado actualmente!'
-        succ_on_bio = '¡Autobio se abrió con éxito!'
-        succ_off_bio = 'Autobio cerrado correctamente!'
     }
     if (config.LANG == 'ID') {
         auto_dsc = 'Tambahkan jam langsung ke bio Anda!'
@@ -310,7 +141,7 @@ if (config.WORKTYPE == 'private') {
         succ_on_bio = 'Autobio Berhasil Dibuka!'
         succ_off_bio = 'Autobio Berhasil Ditutup!'
     }
-    Asena.addCommand({pattern: 'autobio ?(.*)', fromMe: true, desc: auto_dsc, usage: '.autobio on / off' }, (async (message, match) => {
+    Badboy.addCommand({pattern: 'autobio ?(.*)', fromMe: true, desc: auto_dsc, usage: '.autobio on / off' }, (async (message, match) => {
         const bio_status = `${config.AUTOBİO}`
         if (match[1] == 'on') {
             if (bio_status == 'true') {
@@ -339,7 +170,7 @@ if (config.WORKTYPE == 'private') {
             }
         }
     }));
-    Asena.addCommand({pattern: 'detectlang$', fromMe: true, desc: dlang_dsc}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'detectlang$', fromMe: true, desc: dlang_dsc}, (async (message, match) => {
 
         if (!message.reply_message) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text)
         const msg = message.reply_message.text
@@ -364,7 +195,7 @@ if (config.WORKTYPE == 'private') {
         const rep_7 = res_1 + res_2 + res_3 + res_4 + res_5 + res_6
         await message.client.sendMessage(message.jid,rep_7,MessageType.text);
     }));
-    Asena.addCommand({pattern: 'currency(?: ([0-9.]+) ([a-zA-Z]+) ([a-zA-Z]+)|$|(.*))', fromMe: true}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'currency(?: ([0-9.]+) ([a-zA-Z]+) ([a-zA-Z]+)|$|(.*))', fromMe: true}, (async (message, match) => {
 
         if(match[1] === undefined || match[2] == undefined || match[3] == undefined) {
             return await message.client.sendMessage(message.jid,Lang.CURRENCY_ERROR,MessageType.text);
@@ -391,7 +222,7 @@ if (config.WORKTYPE == 'private') {
 
     if (config.LANG == 'TR' || config.LANG == 'AZ') {
 
-        Asena.addCommand({pattern: 'tts (.*)', fromMe: true, desc: Lang.TTS_DESC}, (async (message, match) => {
+        Badboy.addCommand({pattern: 'tts (.*)', fromMe: true, desc: Lang.TTS_DESC}, (async (message, match) => {
 
             if(match[1] === undefined || match[1] == "")
                 return;
@@ -418,7 +249,7 @@ if (config.WORKTYPE == 'private') {
         }));
     }
     else {
-        Asena.addCommand({pattern: 'tts (.*)', fromMe: true, desc: Lang.TTS_DESC}, (async (message, match) => {
+        Badboy.addCommand({pattern: 'tts (.*)', fromMe: true, desc: Lang.TTS_DESC}, (async (message, match) => {
 
             if(match[1] === undefined || match[1] == "")
                 return;
@@ -444,7 +275,7 @@ if (config.WORKTYPE == 'private') {
             await message.client.sendMessage(message.jid,buffer, MessageType.audio, {mimetype: Mimetype.mp4Audio, ptt: true});
         }));
     }
-    Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);    
         let arama = await yts(match[1]);
@@ -476,8 +307,20 @@ if (config.WORKTYPE == 'private') {
                 await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, ptt: false});
             });
     }));
+    
+    Badboy.addCommand({pattern: 'number', fromMe: false, desc: Lang.NUMBER}, (async (message, match) => {
 
-    Asena.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, (async (message, match) => { 
+            const p_lk = 'BEGIN:VCARD\n'
+            + 'VERSION:3.0\n' 
+            + 'FN:' + luttapi.OA_NAME + '\n' //created shahid-devil, please copy this with credit..
+            + 'ORG:luttapi julie fam;\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=' + luttapi.PHONE + ':' + luttapi.PHONE + ' \n'
+            + 'END:VCARD'
+await message.client.sendMessage(message.jid, {displayname: "LUTTAPI", vcard: p_lk}, MessageType.contact);
+
+  }));    
+
+    Badboy.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text);    
     
@@ -504,7 +347,7 @@ if (config.WORKTYPE == 'private') {
         });
     }));
 
-    Asena.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);    
         var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text);
@@ -524,7 +367,7 @@ if (config.WORKTYPE == 'private') {
         await reply.delete();
     }));
 
-    Asena.addCommand({pattern: 'wiki ?(.*)', fromMe: true, desc: Lang.WIKI_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'wiki ?(.*)', fromMe: true, desc: Lang.WIKI_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);    
         var reply = await message.client.sendMessage(message.jid,Lang.SEARCHING,MessageType.text);
@@ -537,7 +380,7 @@ if (config.WORKTYPE == 'private') {
         await reply.delete();
     }));
 
-    Asena.addCommand({pattern: 'img ?(.*)', fromMe: true, desc: Lang.IMG_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'img ?(.*)', fromMe: true, desc: Lang.IMG_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);
         gis(match[1], async (error, result) => {
@@ -554,7 +397,7 @@ if (config.WORKTYPE == 'private') {
         });
     }));
 
-    Asena.addCommand({ pattern: 'github ?(.*)', fromMe: true, desc: Glang.GİTHUB_DESC }, async (message, match) => {
+    Badboy.addCommand({ pattern: 'github ?(.*)', fromMe: true, desc: Glang.GİTHUB_DESC }, async (message, match) => {
 
         const userName = match[1]
  
@@ -599,7 +442,7 @@ if (config.WORKTYPE == 'private') {
       },
     )
 
-    Asena.addCommand({pattern: 'lyric ?(.*)', fromMe: true, desc: Slang.LY_DESC }, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'lyric ?(.*)', fromMe: true, desc: Slang.LY_DESC }, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, Slang.NEED, MessageType.text);
 
@@ -614,7 +457,7 @@ if (config.WORKTYPE == 'private') {
 
     }));
 
-    Asena.addCommand({pattern: "covid ?(.*)", fromMe: true, desc: Clang.COV_DESC}, (async (message, match) => {
+    Badboy.addCommand({pattern: "covid ?(.*)", fromMe: true, desc: Clang.COV_DESC}, (async (message, match) => {
         if (match[1] === "") {
             try{
                 //const resp = await fetch("https://coronavirus-19-api.herokuapp.com/all").then(r => r.json());
@@ -820,7 +663,7 @@ if (config.WORKTYPE == 'private') {
 }
 else if (config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: false}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: false}, (async (message, match) => {
 
         if (!message.reply_message) {
             return await message.client.sendMessage(message.jid,Lang.NEED_REPLY,MessageType.text);
@@ -835,7 +678,7 @@ else if (config.WORKTYPE == 'public') {
             return await message.client.sendMessage(message.jid,Lang.TRANSLATE_ERROR,MessageType.text)
         }
     }));
-    Asena.addCommand({pattern: 'detectlang$', fromMe: false, desc: dlang_dsc}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'detectlang$', fromMe: false, desc: dlang_dsc}, (async (message, match) => {
 
         if (!message.reply_message) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text)
         const msg = message.reply_message.text
@@ -860,7 +703,7 @@ else if (config.WORKTYPE == 'public') {
         const rep_7 = res_1 + res_2 + res_3 + res_4 + res_5 + res_6
         await message.client.sendMessage(message.jid,rep_7,MessageType.text, { quoted: message.data });
     }));
-    Asena.addCommand({pattern: 'currency(?: ([0-9.]+) ([a-zA-Z]+) ([a-zA-Z]+)|$|(.*))', fromMe: false}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'currency(?: ([0-9.]+) ([a-zA-Z]+) ([a-zA-Z]+)|$|(.*))', fromMe: false}, (async (message, match) => {
 
         if(match[1] === undefined || match[2] == undefined || match[3] == undefined) {
             return await message.client.sendMessage(message.jid,Lang.CURRENCY_ERROR,MessageType.text);
@@ -885,7 +728,7 @@ else if (config.WORKTYPE == 'public') {
         }
     }));
     
-    Asena.addCommand({pattern: 'tts (.*)', fromMe: false, desc: Lang.TTS_DESC}, (async (message, match) => {
+    Badboy.addCommand({pattern: 'tts (.*)', fromMe: false, desc: Lang.TTS_DESC}, (async (message, match) => {
 
         if(match[1] === undefined || match[1] == "")
             return;
@@ -911,7 +754,7 @@ else if (config.WORKTYPE == 'public') {
         await message.client.sendMessage(message.jid,buffer, MessageType.audio, {mimetype: Mimetype.mp4Audio,quoted: message.data,  ptt: true});
     }));
 
-    Asena.addCommand({pattern: 'song ?(.*)', fromMe: false, desc: Lang.SONG_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'song ?(.*)', fromMe: false, desc: Lang.SONG_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);    
         let arama = await yts(match[1]);
@@ -940,11 +783,11 @@ else if (config.WORKTYPE == 'public') {
                 writer.addTag();
 
                 reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text);
-                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {quoted: message.data , mimetype: Mimetype.mp4Audio,contextInfo: { forwardingScore: 2, isForwarded: true}, ptt: false});
+                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {quoted: message.data , mimetype: Mimetype.mp4Audio, ptt: false});
             });
     }));
 
-    Asena.addCommand({pattern: 'video ?(.*)', fromMe: false, desc: Lang.VIDEO_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'video ?(.*)', fromMe: false, desc: Lang.VIDEO_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text);    
     
@@ -967,11 +810,11 @@ else if (config.WORKTYPE == 'public') {
 
         yt.on('end', async () => {
             reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text);
-            await message.client.sendMessage(message.jid,fs.readFileSync('./' + VID + '.mp4'), MessageType.video, {quoted: message.data ,contextInfo: { forwardingScore: 2, isForwarded: true}, mimetype: Mimetype.mp4});
+            await message.client.sendMessage(message.jid,fs.readFileSync('./' + VID + '.mp4'), MessageType.video, {quoted: message.data ,mimetype: Mimetype.mp4});
         });
     }));
 
-    Asena.addCommand({pattern: 'yt ?(.*)', fromMe: false, desc: Lang.YT_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'yt ?(.*)', fromMe: false, desc: Lang.YT_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);    
         var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text);
@@ -991,7 +834,7 @@ else if (config.WORKTYPE == 'public') {
         await reply.delete();
     }));
 
-    Asena.addCommand({pattern: 'wiki ?(.*)', fromMe: false, desc: Lang.WIKI_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'wiki ?(.*)', fromMe: false, desc: Lang.WIKI_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);    
         var reply = await message.client.sendMessage(message.jid,Lang.SEARCHING,MessageType.text);
@@ -1004,7 +847,7 @@ else if (config.WORKTYPE == 'public') {
         await reply.delete();
     }));
 
-     Asena.addCommand({pattern: 'img ?(.*)', fromMe: false, desc: Lang.IMG_DESC}, (async (message, match) => { 
+     Badboy.addCommand({pattern: 'img ?(.*)', fromMe: false, desc: Lang.IMG_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);
         gis(match[1], async (error, result) => {
@@ -1021,7 +864,7 @@ else if (config.WORKTYPE == 'public') {
         });
     }));
     
-     Asena.addCommand({pattern: '2img ?(.*)', fromMe: false, desc: Lang.IMG_DESC}, (async (message, match) => { 
+     Badboy.addCommand({pattern: '2img ?(.*)', fromMe: false, desc: Lang.IMG_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);
         gis(match[1], async (error, result) => {
@@ -1038,14 +881,13 @@ else if (config.WORKTYPE == 'public') {
         });
     })); 
 
-    Asena.addCommand({pattern: 'isong ?(.*)', fromMe: false, desc: Lang.ISONG_DESC}, (async (message, match) => { 
+    Badboy.addCommand({pattern: 'song ?(.*)', fromMe: false, desc: Lang.SONG_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);    
         let arama = await yts(match[1]);
         arama = arama.all;
         if(arama.length < 1) return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text);
-        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_SONG,MessageType.text);
-
+     
         let title = arama[0].title.replace(' ', '+');
         let stream = ytdl(arama[0].videoId, {
             quality: 'highestaudio',
@@ -1066,12 +908,12 @@ else if (config.WORKTYPE == 'public') {
                     });
                 writer.addTag();
 
-                reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text,{quoted: message.data});
-                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.document, {filename: 'for iphone' + '.mp3', mimetype: 'audio/mpeg', quoted: message.data});
+                
+                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.document, {filename: '✯ɪͥᴛͭsᷤᴍͫᴇͤ☚⃟፝✪ꜱʜᴀᴢᴢ✯😈' + '.mp3', mimetype: 'audio/mpeg', quoted: message.data});
             });
     }));
 
-    Asena.addCommand({ pattern: 'github ?(.*)', fromMe: false, desc: Glang.GİTHUB_DESC }, async (message, match) => {
+    Badboy.addCommand({ pattern: 'github ?(.*)', fromMe: false, desc: Glang.GİTHUB_DESC }, async (message, match) => {
 
         const userName = match[1]
  
@@ -1115,8 +957,19 @@ else if (config.WORKTYPE == 'public') {
           )
       },
     )
+      Badboy.addCommand({pattern: 'number', fromMe: false, desc: Lang.NUMBER}, (async (message, match) => {
 
-    Asena.addCommand({pattern: 'lyric ?(.*)', fromMe: false, desc: Slang.LY_DESC }, (async (message, match) => {
+            const p_lk = 'BEGIN:VCARD\n'
+            + 'VERSION:3.0\n' 
+            + 'FN:' + luttapi.OA_NAME + '\n' //created shahid-devil, please copy this with credit..
+            + 'ORG:luttapi julie fam;\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=' + luttapi.PHONE + ':' + luttapi.PHONE + ' \n'
+            + 'END:VCARD'
+await message.client.sendMessage(message.jid, {displayname: "LUTTAPI", vcard: p_lk}, MessageType.contact);
+
+  }));    
+
+    Badboy.addCommand({pattern: 'lyric ?(.*)', fromMe: false, desc: Slang.LY_DESC }, (async (message, match) => {
 
         if (match[1] === '') return await message.client.sendMessage(message.jid, Slang.NEED, MessageType.text);
 
@@ -1130,7 +983,7 @@ else if (config.WORKTYPE == 'public') {
         await message.client.sendMessage(message.jid, Buffer.from(buffer.data),  MessageType.image, {caption: `*${Slang.ARAT}* ` + '```' + `${match[1]}` + '```' + `\n*${Slang.BUL}* ` + '```' + tit + '```' + `\n*${Slang.AUT}* ` + '```' + son + '```' + `\n*${Slang.SLY}*\n\n` + aut });
 
     }));
-     Asena.addCommand({pattern: 'sing ?(.*)', fromMe: false, desc: Lang.SING_DESC}, (async (message, match) => { 
+     Badboy.addCommand({pattern: 'sing ?(.*)', fromMe: false, desc: Lang.SING_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SING,MessageType.text);    
         let arama = await yts(match[1]);
@@ -1163,7 +1016,7 @@ else if (config.WORKTYPE == 'public') {
             });
     }));
 
-    Asena.addCommand({pattern: "covid ?(.*)", fromMe: false, desc: Clang.COV_DESC}, (async (message, match) => {
+    Badboy.addCommand({pattern: "covid ?(.*)", fromMe: false, desc: Clang.COV_DESC}, (async (message, match) => {
         if (match[1] === "") {
             try{
                 //const resp = await fetch("https://coronavirus-19-api.herokuapp.com/all").then(r => r.json());
