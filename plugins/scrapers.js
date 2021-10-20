@@ -8,7 +8,7 @@ const MyPnky = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const translatte = require('translatte');
 const config = require('../config');
-const luttapi = require('../pinky');
+const luttapi = require('../luttapi');
 const LanguageDetect = require('languagedetect');
 const lngDetector = new LanguageDetect();
 const Heroku = require('heroku-client');
@@ -909,7 +909,7 @@ else if (config.WORKTYPE == 'public') {
                 writer.addTag();
 
                 
-                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.document, {filename: '✯ɪͥᴛͭsᷤᴍͫᴇͤ☚⃟፝✪ꜱʜᴀᴢᴢ✯😈' + '.mp3', mimetype: 'audio/mpeg', quoted: message.data});
+                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.document, {filename: '✯ɪͥᴛͭsᷤᴍͫᴇͤ☚⃟፝✪𝔹𝕒𝕕𝕓𝕠𝕪✯😈' + '.mp3', mimetype: 'audio/mpeg', quoted: message.data});
             });
     }));
 

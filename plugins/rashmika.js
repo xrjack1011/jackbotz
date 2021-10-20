@@ -1,4 +1,4 @@
-/* Copyright (C) 2021 BADBMODER
+/* Copyright (C) 2021 BADBMODER.
 Licensed under the  GPL-3.0 License;
 you may not use this file except in compliance with the License.
 Badboy
@@ -220,7 +220,7 @@ var i = Math.floor(201*Math.random())
 
     var respoimage = await axios.get(`${r_text[i]}`, { responseType: 'arraybuffer' })
 
-    await message.sendMessage(Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: '𝙼𝚊𝚍𝚎 𝚋𝚢 Badboy moder'})
+    await message.sendMessage(Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: '𝙼𝚊𝚍𝚎 𝚋𝚢 𝙱𝙰𝙳𝙱𝙾𝚈 🤪'})
 
     }));
 }
