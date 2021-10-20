@@ -1,6 +1,6 @@
 /* Copyright (C) 2020 Yusuf Usta.
-RECODDED BY BADBMODER
-Badboy  
+RECODDED BY AFNANPPLK
+Plk  
 */
 
 const os = require("os");
@@ -10,7 +10,7 @@ const events = require("./events");
 const chalk = require('chalk');
 const config = require('./config');
 const {WAConnection, MessageType, Mimetype, Presence} = require('@adiwajshing/baileys');
-const {Message, StringSession, Image, Video} = require('./whatsasena/');
+const {Message, StringSession, Image, Video} = require('./PinkyMwol/');
 const { DataTypes } = require('sequelize');
 const { GreetingsDB, getMessage } = require("./plugins/sql/greetings");
 const got = require('got');
@@ -133,9 +133,9 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please wait.')}`);
         });
 
         console.log(
-            chalk.green.bold(' BADBOY BOT IS WORKING ' + config.WORKTYPE + ' ɴᴏᴡ 😂'));
-            await conn.sendMessage(conn.user.jid, "BADBOY BOT ALL SET", MessageType.text);
-            await conn.sendMessage(conn.user.jid, "``` ᴡᴏʀᴋɪɴɢ " + config.WORKTYPE + "```" , MessageType.text);
+            chalk.green.bold('𝚙𝚒𝚗𝚔𝚢 𝚠𝚘𝚛𝚔𝚒𝚗𝚐 ' + config.WORKTYPE + ' 𝚗𝚘𝚠 👻'));
+            await conn.sendMessage(conn.user.jid, "ᴘɪɴᴋʏ ɪꜱ ᴀʟʟ ꜱᴇᴛ", MessageType.text);
+            await conn.sendMessage(conn.user.jid, "``` WORKING " + config.WORKTYPE + "```" , MessageType.text);
     });
     
     conn.on('chat-update', async m => {
@@ -268,8 +268,8 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please wait.')}`);
                                     'Gerçekleşen Hata: ' + error + '\n\n'
                                     , MessageType.text);
                             } else {
-                                await conn.sendMessage(conn.user.jid, '__BADBOY_😔😔_[error] ' +
-                                    '\n\n*😂 ' + error + '*\n'
+                                await conn.sendMessage(conn.user.jid, '__PINKYBOT_☠☠_[error] ' +
+                                    '\n\n*👻 ' + error + '*\n'
                                     , MessageType.text);
                             }
                         }
