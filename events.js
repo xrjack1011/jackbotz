@@ -1,5 +1,5 @@
 /* Copyright (C) 2020 Yusuf Usta.
-BADBOY
+PINKY V2
 */
 
 // Komutları burada tutacağız.
