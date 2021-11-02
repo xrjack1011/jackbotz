@@ -11,11 +11,7 @@ function convertToBool(text, fault = 'true') {
 }
 
 module.exports = {
-
- OA_AI: process.env.Z_PINKY_AI === undefined ? true : process.env.Z_BOTNAME,  
- OB_NAME: process.env.Z_BOT_NAME === undefined ? 'Pinky' : process.env.Z_BOT_NAME,
- OA_NAME: process.env.Z_DEP_NAME === undefined ? 'plk' : process.env.Z_DEP_NAME,
- OA_REPLY: process.env.Z_DEP_REPLY === undefined ? 'plk is my creator his full name is afnanplk' : process.env.Z_DEP_REPLY,
-    
-
+ PLKAFN: process.env.BAD_WORDS === undefined ? false : process.env.BAD_WORDS,
+ PHONE: process.env.NUMBER === undefined ? '+918301985859' : process.env.NUMBER,   
+ OA_NAME: process.env.DEPLOYER === undefined ? 'Someone' : process.env.DEPLOYER,    
 };
