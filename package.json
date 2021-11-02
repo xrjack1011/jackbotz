@@ -1,29 +1,29 @@
 {
-  "name": "WhatsAsenaDuplicated",
-  "version": "1.3.2",
-  "description": "WhatsAsena project - a Whatsapp userbot helping to improve your Whatsapp experience.",
-  "main": "./WhatsAsenaDuplicated/bot.js",
+  "name": "Pinky",
+  "version": "7.3.6",
+  "description": "Pinky is the Modified Version of WhatsAsena.",
+  "main": "./Pinky_V2/bot.js",
   "scripts": {
     "start": "supervisor -s bot.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phaticusthiccy/WhatsAsenaDuplicated.git"
+    "url": "git+https://github.com/afnanplk/Pinky_V.git"
   },
   "keywords": [
     "whatsapp",
     "bot",
     "ai",
-    "asena",
-    "WhatsAsena"
+    "Pinky",
+    "Afnanplk"
   ],
-  "author": "AsenaDev / Yusuf Usta",
-  "developer": "AsenaDev / @phaticusthiccy",
+  "author": "Afnanplk",
+  "developer": "@afnanplk",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/phaticusthiccy/WhatsAsenaDuplicated/issues"
+    "url": "https://github.com//afnanplk/Pinky_V/issues"
   },
-  "homepage": "https://github.com/phaticusthiccy/WhatsAsenaDuplicated#readme",
+  "homepage": "https://github.com//afnanplk/Pinky_V#readme",
   "dependencies": {
     "@adiwajshing/baileys": "3.5.2",
     "@lh2020/speedtest-net": "^2.1.1",
@@ -71,4 +71,4 @@
     "yt-search": "^2.7.4",
     "ytdl-core": "^4.8.3"
   }
- }
+}
